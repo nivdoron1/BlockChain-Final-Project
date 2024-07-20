@@ -1,0 +1,4 @@
+eth-ape==0.8.4
+ape-solidity==0.8.0
+hypothesis==6.103.1
+ape-foundry==0.8.0

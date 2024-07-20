@@ -1,0 +1,20 @@
+solidity:
+  version: 0.8.26
+
+ethereum:
+  local:
+    # If you want to use the foundry provider, switch the default below. In this case, you must either locally install
+    # foundry or use the docker compose to run it in a container.
+
+#    default_provider: foundry
+    default_provider: test
+
+foundry:
+  manage_process: false
+  host: http://127.0.0.1:8545
+#  base_fee: 0
+#  priority_fee: 0
+
+test:
+  mnemonic: test test test test test test test test test test test junk
+  number_of_accounts: 12

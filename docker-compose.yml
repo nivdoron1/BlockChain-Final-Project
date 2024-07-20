@@ -1,0 +1,43 @@
+services:
+  ape-console:
+    profiles: ['console']
+    image: ape
+    build:
+      context: ./
+      dockerfile: ./ape/Dockerfile
+    volumes:
+      - .:/home/harambe/project
+      - ./ape/ape-config-foundry.yaml:/home/harambe/project/ape-config.yaml
+    command: /usr/bin/bash
+    tty: true
+    entrypoint: ''
+    depends_on:
+      - foundry
+    networks:
+      apeworx: {}
+
+  test:
+    profiles: ['test']
+    extends:
+      service: ape-console
+    depends_on:
+      - foundry
+
+    command: ape test
+    tty: true
+
+    networks:
+      apeworx: {}
+
+  foundry:
+    image: ghcr.io/foundry-rs/foundry
+    user: 'foundry'
+    command: /usr/local/bin/anvil --host 0.0.0.0 --accounts 15
+    entrypoint: ''
+    ports:
+      - 8545:8545
+    networks:
+      apeworx: {}
+
+networks:
+  apeworx:

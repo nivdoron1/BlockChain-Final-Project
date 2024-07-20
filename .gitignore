@@ -1,0 +1,10 @@
+__pycache__
+venv
+.pytest_cache
+.env
+.build
+.idea
+.history
+.hypothesis/
+build/
+reports/

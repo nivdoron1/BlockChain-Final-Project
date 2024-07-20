@@ -1,0 +1,17 @@
+solidity:
+  version: 0.8.26
+
+ethereum:
+  local:
+    default_provider: foundry
+
+foundry:
+  request_timeout: 200  # Defaults to 30
+  host: http://foundry:8545/ # Use the docker container named foundry
+#  base_fee: 0
+#  priority_fee: 0
+
+test:
+  mnemonic: test test test test test test test test test test test junk
+  number_of_accounts: 12
+
